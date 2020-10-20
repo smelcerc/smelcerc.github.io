@@ -1,16 +1,16 @@
 function whichShoes() {
     try {
         //INPUT
-        var weather = (document.getElementById('weatherInput').value).toLowerCase();
+        var weather = (document.getElementById('weather').value).toLowerCase();
         //PROCESSING
-        if (weather == "sunny") {
-            var shoe = "SANDLES";
+        if (weather == "hot") {
+            var shoe = "sandals";
         }
-        else if (weather == "raining") {
-            var shoe = "SHOES"
+        else if (weather == "rain") {
+            var shoe = "galoshes"
         }
-        else if (weather == "snowing") {
-            var shoe = "BOOTS";
+        else if (weather == "snow") {
+            var shoe = "boots";
         }
         else {
             document.getElementById('output').innerHTML = "Please enter the weather";

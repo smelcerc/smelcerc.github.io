@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Question2</title>
+<!-- 
+        <style>
+            body {text-align: center;}
+            header,
+            footer {background-color: #000; color: #fff; padding: 10px;}
+            footer {font-size: 13px; letter-spacing: 1.5pt;}
+            h1,
+            h2 {margin: 0;}
+            h2, 
+            #currentdate {color: yellow;}
+            main {margin: 10px auto; border: 1px solid #999; padding: 10px; max-width: 500px; background-color: #abe; box-shadow: 0 0 30px;}
+            h3 {font-size: 24px; margin: 0 0 15px 0; border-bottom: 1px solid #333; padding: 0;}
+            label {display: block; margin: 5px;}
+        </style> -->
+
+    </head>
+    <body>
+        <header>
+            <h1>Exam 1: Question 2</h1>
+            <h2>Christopher Smelcer</h2>
+        </header>
+        <main>
+            <h3>Caluclate Volume of a Round Cylinder</h3>
+            <label>Enter Regular Radius of Cylinder: <input type="text" id="radius"></label>
+        <label>Enter Height of Cylinder: <input type="text" id="height"></label>
+            <label><button onclick="calculateVol()">Calculate Volume</button></label>
+            <hr>
+            <p><span id="output"></span></p>
+        </main>
+        <footer>
+            &copy;2020 &bull; Christopher Smelcer &bull; BYU-Idaho &bull; CIT 160
+        </footer>
+        <script>
+            function calculateVol() {
+                try {
+                    //INPUT
+                    let radius = parseFloat(document.getElementById('radius').value);
+                    let height = parseFloat(document.getElementById('height').value);
+                    //PROCESSING
+
+                    let volume = Math.PI * Math.pow(radius, 2) * height;
+
+                    let output = Math.round(volume);
+                    
+                    //OUTPUT
+                    var returnMessage = "Volume: " + String(output);
+                    document.getElementById('output').innerHTML = returnMessage;
+                }
+                catch(err){
+                    throw "Could not process users input";
+                }
+            }
+        </script>
+    </body>
+</html>
+
