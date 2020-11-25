@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Loan Calculator</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <h1>Loan Calculator</h1>
+    <label>Amount borrowed (principal) <input type='text' id='principal'></label>
+    <br>
+    <label>Annual interest rate (example: .065) <input type='text' id='annualRate'></label>
+    <br>
+    <label>Number of years <input type='text' id='years'></label>
+    <br>
+    <label>Payments per year <input type='text' id='periodsPerYear'></label>
+    <br>
+    <label><button id='payment' onclick='doPayment()'>Compute payment</button><span id='output1'></span></label>
+    <br>
+    <label>Number of payments paid to date <input type='text' id='numberOfPaymentPaidToDate'></label>
+    <br>
+    <span><button id='amountLeft' onclick='doBalance()'>Compute payoff amount</button><div id='output2'></div></span>
+
+    <script>
+        function doPayment() {
+            //Input
+            var principal = parseFloat(document.getElementById('principal').value);
+            var annualRate = parseFloat(document.getElementById('annualRate').value);
+            var years = parseFloat(document.getElementById('years').value);
+            var periodsPerYear = parseFloat(document.getElementById('periodsPerYear').value);
+
+            //Calls the computePayment function
+            var paymentAmount = computePayment(principal, annualRate, years, periodsPerYear).toFixed(2);
+
+            //Output
+            var returnMessage = '$' + paymentAmount;
+            document.getElementById('output1').innerHTML = returnMessage;
+
+        }
+
+        function doBalance() {
+            //Input
+            var principal = parseFloat(document.getElementById('principal').value);
+            var annualRate = parseFloat(document.getElementById('annualRate').value);
+            var years = parseFloat(document.getElementById('years').value);
+            var periodsPerYear = parseFloat(document.getElementById('periodsPerYear').value);
+            var numberOfPaymentPaidToDate = parseFloat(document.getElementById('numberOfPaymentPaidToDate').value);
+
+            //Calls the computeBalance function
+        }
+
+        function computePayment(principal, annualRate, years, periodsPerYear) {
+            //Calculates the payment amount
+            var ratePerPeriod = annualRate / periodsPerYear;
+            var totalPeriods = years * periodsPerYear;
+
+            var paymentAmount = (principal * ratePerPeriod) / (1 - Math.pow((1 + ratePerPeriod), -totalPeriods));
+
+            //Returns to doPayment() the payment amount
+            return paymentAmount;
+        }
+
+        function computeBalance(principal, annualRate, years, periodsPerYear, numberOfPaymentPaidToDate) {
+
+        }
+    </script>
+</body>
+
+</html>
