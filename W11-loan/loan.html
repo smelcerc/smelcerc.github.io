@@ -20,7 +20,7 @@
     <br>
     <label>Number of payments paid to date <input type='text' id='numberOfPaymentPaidToDate'></label>
     <br>
-    <span><button id='amountLeft' onclick='doBalance()'>Compute payoff amount</button><div id='output2'></div></span>
+    <label><button id='amountLeft' onclick='doBalance()'>Compute payoff amount</button><span id='output2'></span></label>
 
     <script>
         function doPayment() {
@@ -48,6 +48,11 @@
             var numberOfPaymentPaidToDate = parseFloat(document.getElementById('numberOfPaymentPaidToDate').value);
 
             //Calls the computeBalance function
+            var balanceAmount = computeBalance(principal, annualRate, years, periodsPerYear, numberOfPaymentPaidToDate).toFixed(2);
+
+            //Output
+            var returnMessage = '$' + balanceAmount;
+            document.getElementById('output2').innerHTML = returnMessage;
         }
 
         function computePayment(principal, annualRate, years, periodsPerYear) {
@@ -62,6 +67,15 @@
         }
 
         function computeBalance(principal, annualRate, years, periodsPerYear, numberOfPaymentPaidToDate) {
+            //Calculates the balance amount
+            var ratePerPeriod = annualRate / periodsPerYear;
+            var totalPeriods = years * periodsPerYear;
+            var paymentAmount = computePayment(principal, annualRate, years, periodsPerYear).toFixed(2);
+
+            var balanceAmount = principal * Math.pow((1 + ratePerPeriod), numberOfPaymentPaidToDate) - paymentAmount * (Math.pow((1 + ratePerPeriod), numberOfPaymentPaidToDate) - 1) / ratePerPeriod
+
+            //Returns to doBalance() the balance amount
+            return balanceAmount;
 
         }
     </script>
