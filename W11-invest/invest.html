@@ -8,20 +8,18 @@
 
 <body>
     <h1>Investment Calculator</h1>
-    <form>
-        <label>Amount invested (principal) <input type='text' id='principal'></label>
-        <br>
-        <label>Annual Rate (example: .08) <input type='text' id='rate'></label>
-        <br>
-        <label>Number of years <input type='text' id='years'></label>
-        <br>
-        <label>Periods per year <input type='text' id='periods'></label>
-        <br>
-        <input type="reset" value="Reset">
-    </form>
-    <button id='Calculator' onclick='doFV()'>Compute future value</button>
 
-    <div id=output></div>
+    <label>Amount invested (principal) <input type='text' id='principal'></label>
+    <br>
+    <label>Annual Rate (example: .08) <input type='text' id='rate'></label>
+    <br>
+    <label>Number of years <input type='text' id='years'></label>
+    <br>
+    <label>Periods per year <input type='text' id='periods'></label>
+    <br>
+    <label><button id='Calculator' onclick='doFV()'>Compute future value</button><span id='output'></span></label>
+
+
 
     <script>
         function doFV() {
