@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Investment Calculator</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <h1>Investment Calculator</h1>
+    <form>
+        <label>Amount invested (principal) <input type='text' id='principal'></label>
+        <br>
+        <label>Annual Rate (example: .08) <input type='text' id='rate'></label>
+        <br>
+        <label>Number of years <input type='text' id='years'></label>
+        <br>
+        <label>Periods per year <input type='text' id='periods'></label>
+        <br>
+        <input type="reset" value="Reset">
+    </form>
+    <button id='Calculator' onclick='doFV()'>Compute future value</button>
+
+    <div id=output></div>
+
+    <script>
+        function doFV() {
+            //Input
+            var principal = parseFloat(document.getElementById('principal').value);
+            var rate = parseFloat(document.getElementById('rate').value);
+            var years = parseFloat(document.getElementById('years').value);
+            var periods = parseFloat(document.getElementById('periods').value);
+
+            var periodRate = rate / periods;
+
+            var totalPeriods = years * periods;
+
+            //Calls computeFutureValuefunction
+            var futureValue = computeFutureValue(principal, periodRate, totalPeriods).toFixed(2);
+
+            //Output
+            var returnMessage = '$' + futureValue;
+            document.getElementById('output').innerHTML = returnMessage;
+        }
+
+        function computeFutureValue(a, r, n) {
+            //Processing
+            var futureValue = a * Math.pow((1 + r), n);
+
+            //Return to doFV()
+            return futureValue;
+        }
+    </script>
+</body>
+
+</html>
