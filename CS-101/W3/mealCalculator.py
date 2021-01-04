@@ -11,7 +11,7 @@ tip_percentage = float(input("What is the tip percentage? "))
 
 print()
 
-subtotal = (child_price * number_of_children) + (adult_price * number_of_adults) + (drink_cost * number_of_drinks) + (appetizer_cost + number_of_appetizers)
+subtotal = (child_price * number_of_children) + (adult_price * number_of_adults) + (drink_cost * number_of_drinks) + (appetizer_cost * number_of_appetizers)
 print(f"Subtotal: ${subtotal:.2f}" )
 
 sales_tax = (subtotal * tax_rate) / 100
