@@ -1,5 +1,8 @@
 print("Please enter the following:\n")
 
+print("test \n \
+    test")
+
 adjective = input("adjective: ")
 animal = input("animal: ")
 verb_1 = input("verb: ")
