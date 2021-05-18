@@ -8,6 +8,7 @@ def prompt_search_term():
 
 def parse_file(file_name, search_term):
     count = 0
+    word_list = []
     with open(file_name, 'r') as text_file:
         for line in text_file:
             words = line.split()
@@ -15,14 +16,16 @@ def parse_file(file_name, search_term):
                 word_exist = word.lower().find(search_term)
                 if word_exist != -1:
                     count += 1
-    return count
+                    word_list.append(word)
+    return [count, word_list]
 
 def main():
     file_name = prompt_filename()
     search_term = prompt_search_term()
-    word_count = parse_file(file_name, search_term)
+    words_and_count = parse_file(file_name, search_term)
 
-    print(word_count)
+    print(f'The search term "{search_term}" appears {words_and_count[0]} times in the document {file_name}!')
+    print(f'The words it appears in are {words_and_count[1]}')
 
 if __name__ == '__main__':
     main()
