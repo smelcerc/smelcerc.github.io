@@ -20,10 +20,6 @@ MOVE_AMOUNT = 5
 SCORE_HIT = 1
 SCORE_MISS = 5
 
-
-
-
-
 class Pong(arcade.Window):
     """
     This class handles all the game callbacks and interaction
