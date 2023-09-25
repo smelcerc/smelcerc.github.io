@@ -1,6 +1,0 @@
-1) Pick MATCH or FLASHLIGHT (else tell the user to pick an option then loops back to the question)
-    a) MATCH
-        i) Pick RUN or HIDE (else tell the user to pick an option then loops back to the question)
-    b) FLASHLIGHT
-        i) Pick FOLLOW or LOOK (else tell the user to pick an option then loops back to the question)
-        
